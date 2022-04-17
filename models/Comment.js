@@ -9,9 +9,13 @@ const ReplySchema = new Schema(
     },
     replyBody: {
       type: String,
+      required : true,
+      trim: true
     },
     writtenBy: {
       type: String,
+      required: true,
+      trim: true
     },
     createdAt: {
       type: Date,
@@ -29,16 +33,20 @@ const Commentschema = new Schema(
   {
     writtenBy: {
       type: String,
+      required: true,
+      trim: true
     },
     commentBody: {
       type: String,
+      trquired: true,
+      trim: true
     },
     createdAt: {
       type: Date,
       default: Date.now,
       get: (createdAtVal) => dateFormat(createdAtVal),
     },
-    replies: [],
+    replies: [ReplySchema],
   },
   {
     toJSON: {
