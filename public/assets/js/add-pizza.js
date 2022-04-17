@@ -39,6 +39,8 @@ const handleAddTopping = event => {
 const handlePizzaSubmit = event => {
   event.preventDefault();
 
+  console.log(event.target.result)
+
   const pizzaName = $pizzaForm.querySelector('#pizza-name').value;
   const createdBy = $pizzaForm.querySelector('#created-by').value;
   const size = $pizzaForm.querySelector('#pizza-size').value;
@@ -67,6 +69,7 @@ const handlePizzaSubmit = event => {
     })
     .catch(err => {
       console.log(err);
+      saveRecord(formData);
     });
 };
 
